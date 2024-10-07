@@ -1,4 +1,7 @@
 import requests
+from click import progressbar
+from gtts import gTTS
+from TTS.api import TTS
 
 parameters = {
     "amount": 10,
@@ -113,3 +116,11 @@ print(question_data)
 #         ]
 #     }
 # ]
+
+tts_ = gTTS(text="I love you, baby!", lang="en")
+tts_.save("output.mp3")
+
+
+# model_path = ""
+# tts = TTS(model_name=model_path, progressbar=False, gpu=False)
+# tts.tts_to_file(text="Hello world", file_path="output.wav")
