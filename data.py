@@ -1,7 +1,8 @@
 import requests
 from click import progressbar
 from gtts import gTTS
-from TTS.api import TTS
+#from TTS.api import TTS
+#from melo.api import TTS
 
 parameters = {
     "amount": 10,
@@ -12,6 +13,7 @@ responses = requests.get(url="https://opentdb.com/api.php", params=parameters)
 responses.raise_for_status()
 data = responses.json()
 question_data = data["results"]
+print(data)
 print(question_data)
 
 # question_data = [
@@ -124,3 +126,20 @@ tts_.save("output.mp3")
 # model_path = ""
 # tts = TTS(model_name=model_path, progressbar=False, gpu=False)
 # tts.tts_to_file(text="Hello world", file_path="output.wav")
+
+## # setup melo library:
+## speed = 1.0
+## device = "auto"
+##
+## text = "How are you doing?"
+## model = TTS(language="EN_V2", device=device)
+## speaker_ids = model.hps.data.spk2id
+##
+## # American accent
+## output_path = "en-us.wav"
+## model.tts_to_file(text, speaker_ids["EN-US"], output_path, speed=speed)
+##
+##
+## # British accent
+## output_path = 'en-br.wav'
+## model.tts_to_file(text, speaker_ids['EN-BR'], output_path, speed=speed)

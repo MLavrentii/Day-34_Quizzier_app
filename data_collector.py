@@ -4,9 +4,9 @@ from quiz_brain import QuizBrain
 THEME_COLOR = "#375362"
 
 
-class QuizInterface:
+class DataCollector:
 
-    def __init__(self, quiz_brain: QuizBrain):
+    def __init__(self):
         self.quiz = quiz_brain
         self.window = Tk()
         self.window.title("Quizzler")
@@ -57,6 +57,3 @@ class QuizInterface:
             self.get_next_question()
         else:
             q_text = f"Your final score was: {self.quiz.score}/{self.quiz.question_number}"
-
-
-
