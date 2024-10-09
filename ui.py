@@ -48,6 +48,7 @@ class QuizInterface:
             self.get_next_question()
         else:
             q_text = f"Your final score was: {self.quiz.score}/{self.quiz.question_number}"
+            self.canvas.itemconfig(self.question_text, text=q_text)
 
     def true(self):
         answer = "true"
@@ -57,6 +58,7 @@ class QuizInterface:
             self.get_next_question()
         else:
             q_text = f"Your final score was: {self.quiz.score}/{self.quiz.question_number}"
+            self.canvas.itemconfig(self.question_text, text=q_text)
 
 
 
