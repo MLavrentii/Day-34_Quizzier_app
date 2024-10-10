@@ -14,8 +14,8 @@ for question in question_data:
 
 #quiz = QuizBrain(question_bank)
 #quiz_ui = QuizInterface(quiz)
-
-
+data = QuizData()
+print(data)
 
 # while quiz.still_has_questions():
 #     quiz.next_question()
