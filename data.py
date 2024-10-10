@@ -8,8 +8,21 @@ parameters = {
     "amount": 10,
     "type": "boolean"
 }
+url = "https://opentdb.com/api.php"
 
-responses = requests.get(url="https://opentdb.com/api.php", params=parameters)
+class QuizData:
+    def __init__ (self, parameters, url):
+        self.parameters = parameters
+        self.url = url
+
+    def get_data(self):
+        self.responses = requests.get(url=self.url, params=self.parameters)
+        self.responses.raise_for_status()
+        self.data = self.responses.json()
+        self.question_data = self.data["results"]
+        return self.question_data
+
+responses = requests.get(url=url, params=parameters)
 responses.raise_for_status()
 data = responses.json()
 question_data = data["results"]
