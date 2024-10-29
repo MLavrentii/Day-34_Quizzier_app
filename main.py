@@ -1,8 +1,14 @@
 from question_model import Question
-from data import question_data
+#from data import question_data
 from quiz_brain import QuizBrain
 from ui import QuizInterface
 from data import QuizData
+
+
+question_data = QuizData().get_data()
+
+print(question_data)
+
 
 question_bank = []
 for question in question_data:
@@ -11,11 +17,10 @@ for question in question_data:
     new_question = Question(question_text, question_answer)
     question_bank.append(new_question)
 
+print(question_bank)
 
-#quiz = QuizBrain(question_bank)
-#quiz_ui = QuizInterface(quiz)
-data = QuizData()
-print(data)
+quiz = QuizBrain(question_bank)
+quiz_ui = QuizInterface(quiz)
 
 # while quiz.still_has_questions():
 #     quiz.next_question()

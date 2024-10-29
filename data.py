@@ -11,7 +11,8 @@ parameters = {
 url = "https://opentdb.com/api.php"
 
 class QuizData:
-    def __init__ (self, parameters, url):
+    #def __init__ (self, parameters, url):
+    def __init__ (self):
         self.parameters = parameters
         self.url = url
 
@@ -22,12 +23,12 @@ class QuizData:
         self.question_data = self.data["results"]
         return self.question_data
 
-responses = requests.get(url=url, params=parameters)
-responses.raise_for_status()
-data = responses.json()
-question_data = data["results"]
-print(data)
-print(question_data)
+#responses = requests.get(url=url, params=parameters)
+#responses.raise_for_status()
+#data = responses.json()
+#question_data = data["results"]
+#print(data)
+#print(question_data)
 
 # question_data = [
 #     {
